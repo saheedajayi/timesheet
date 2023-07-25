@@ -1,0 +1,35 @@
+.clockContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.clockInAndOut{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.clockOutBtn, .clockInBtn, .clockInAgainBtn{
+    color: #fff;
+    background-color: #F72585;
+    font-size: 2rem;
+    font-weight: 300;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.clockInBtn{
+    background-color: #4CC9F0;
+}
+
+.clockInAgainBtn{
+    background-color: #7209B7;
+}
+
+.clocked{
+    text-align: center;
+    margin: 10px;
+}

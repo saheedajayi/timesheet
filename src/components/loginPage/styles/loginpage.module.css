@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*body {*/
+/*    overflow-y: hidden;*/
+/*}*/
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /*border: 1px solid #000;*/
+    border-radius: 4px;
+    padding: 30px;
+    width: 300px;
+    box-shadow: 0 0 24px -15px rgba(0,0,0,0.77);
+
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.clock {
+    font-size: 30px;
+    margin-right: 10px;
+    color: #4361EE
+}
+
+.headerText{
+    /*font-size: ;*/
+    /*margin: 0.3em 0;*/
+}
+
+.loginText{
+    margin: 10px 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+
+input[type="text"]{
+    width: 280px;
+    background-color: #E8F0FE;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"].is-invalid {
+    border-color: #F72585;
+}
+
+
+input[type="text"]:focus{
+    border-color: #4361EE;
+    outline: none;
+}
+
+.error {
+    color: #F72585;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+.btnDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginBtn {
+    margin-top: 5px;
+    padding: 10px 133px;
+    background-color: #3335D8;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.motivationalWord{
+    font-size: 0.9rem;
+    margin: 10px 0 30px;
+    line-height: 1.2rem;
+}
+
+/*.buttonDisable*/
+

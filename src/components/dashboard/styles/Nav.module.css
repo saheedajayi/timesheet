@@ -1,0 +1,40 @@
+.navbar {
+    background-color: #4361EE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+}
+
+.profilePicture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+.userName {
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.logoutButton {
+    background-color: red;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.logoutButton:hover {
+    background-color: rgba(255, 0, 0, 0.69);
+}
