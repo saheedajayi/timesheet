@@ -6,6 +6,9 @@
     margin-bottom: 20px;
 }
 
+.tableContentDiv{
+    border-bottom: 2px solid black;
+}
 .tableContent{
     display: flex;
     justify-content: space-between;

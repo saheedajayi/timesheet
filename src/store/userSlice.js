@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     users: [
         {
-            id: "adm-adebayo",
+            id: "100-001",
             fullname: "Raheem Adebayo",
             role: "admin",
             image: "src/assets/passport-1.jpg",

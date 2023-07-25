@@ -5,33 +5,32 @@ import { clockActions } from "../../store/clockSlice.js";
 
 function NonAdmin() {
     const dispatch = useDispatch();
-    const { clocks } = useSelector(state => state.clocks);
+    const { currentUser } = useSelector(state => state.users);
 
     const [clockIn, setClockIn] = useState(null);
     const [clockOut, setClockOut] = useState(null);
     const [buttonDisabled, setButtonDisabled] = useState(false);
 
-    // Function to handle clock-in
+
     const handleClockIn = () => {
         setClockIn(new Date());
-        dispatch(clockActions.clockIn());
+        dispatch(clockActions.clockIn(currentUser.id));
     };
 
-    // Function to handle clock-out
     const handleClockOut = () => {
         setClockOut(new Date());
         setButtonDisabled(true);
-        dispatch(clockActions.clockOut());
+        dispatch(clockActions.clockOut(currentUser.id));
     };
 
-    // Function to reset the clock state
+
     const resetClock = () => {
         setClockIn(null);
         setClockOut(null);
         setButtonDisabled(false);
     };
 
-    // Check if the current time is beyond 8 AM and reset clock state if needed
+
     useEffect(() => {
         const interval = setInterval(() => {
             const now = new Date();
@@ -45,7 +44,7 @@ function NonAdmin() {
         }, 1000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [currentUser.id]);
 
     return (
         <div className={styles.clockContainer}>

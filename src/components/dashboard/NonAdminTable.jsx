@@ -2,8 +2,8 @@ import { useState } from "react";
 import styles from "../dashboard/styles/NonAdminTable.module.css";
 import Nav from "./Nav.jsx";
 import profilePicture2 from "../../assets/passport-2.webp";
-import {useDispatch, useSelector} from "react-redux";
-import {userActions} from "../../store/userSlice.js";
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "../../store/userSlice.js";
 import UpdateEmployeeForm from "./UpdateEmployeeForm.jsx";
 
 function NonAdminTable() {
@@ -15,10 +15,9 @@ function NonAdminTable() {
     const nonAdminUsers = users.filter((user) => user.role !== "admin");
 
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-
     const [selectedUserId, setSelectedUserId] = useState(null);
-    const handleDeleteEmployee = (userId) => {
 
+    const handleDeleteEmployee = (userId) => {
         dispatch(userActions.deleteUser(userId));
     };
 
@@ -33,6 +32,8 @@ function NonAdminTable() {
     };
 
     const selectedUser = nonAdminUsers.find((user) => user.id === selectedUserId);
+    const selectedUserClocks = clocks.filter((clock) => clock.id === selectedUserId);
+
 
     const handleViewEmployee = (userId) => {
         setSelectedUserId(userId);
@@ -51,34 +52,35 @@ function NonAdminTable() {
                     <hr />
                 </div>
                 {nonAdminUsers.map((user) => (
-                    <div key={user.id} className={styles.tableContent}>
-                        <div className={styles.user}>
-                            <img src={profilePicture2} alt="" />
-                            <p>{user.fullname}</p>
-                        </div>
-                        <div>
-                            <button
-                                className={styles.viewEmp}
-                                onClick={() => handleViewEmployee(user.id)}
-                            >
-                                View Employee
-                            </button>
-                            <button
-                                className={styles.editInfo}
-                                onClick={() => handleEditInfo(user.id)}
-                            >
-                                Edit Info
-                            </button>
-                            <button
-                                className={styles.delete}
-                                onClick={() => handleDeleteEmployee(user.id)}
-                            >
-                                Delete Employee
-                            </button>
+                    <div key={user.id} className={styles.tableContentDiv}>
+                        <div className={styles.tableContent}>
+                            <div className={styles.user}>
+                                <img src={profilePicture2} alt="" />
+                                <p>{user.fullname}</p>
+                            </div>
+                            <div>
+                                <button
+                                    className={styles.viewEmp}
+                                    onClick={() => handleViewEmployee(user.id)}
+                                >
+                                    View Employee
+                                </button>
+                                <button
+                                    className={styles.editInfo}
+                                    onClick={() => handleEditInfo(user.id)}
+                                >
+                                    Edit Info
+                                </button>
+                                <button
+                                    className={styles.delete}
+                                    onClick={() => handleDeleteEmployee(user.id)}
+                                >
+                                    Delete Employee
+                                </button>
+                            </div>
                         </div>
                     </div>
                 ))}
-                <hr />
             </div>
 
             {selectedUserId && (
@@ -95,15 +97,16 @@ function NonAdminTable() {
                                         <p>Name: {user.fullname}</p>
                                         <p>Employee ID: {user.id}</p>
                                         <p>Role: {user.role}</p>
+                                        {/*{console.log("Selected User ID:", selectedUserId)}*/}
+                                        {/*{console.log("Selected User:", selectedUser)}*/}
+                                        {/*{console.log("Selected User Clocks:", selectedUserClocks)}*/}
                                         {/* Display clock information for the selected user */}
-                                        {clocks.map((clock) =>
-                                            clock.id === selectedUserId ? (
-                                                <div key={clock.id}>
-                                                    <p>Status: {clock.status}</p>
-                                                    <p>Time: {clock.time.toLocaleTimeString()}</p>
-                                                </div>
-                                            ) : null
-                                        )}
+                                        {selectedUserClocks.map((clock) => (
+                                            <div key={clock.id}>
+                                                <p>Status: {clock.status}</p>
+                                                <p>Time: {clock.time.toLocaleTimeString()}</p>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             ) : null
@@ -111,6 +114,7 @@ function NonAdminTable() {
                     </div>
                 </div>
             )}
+
 
             {selectedUser && isEditModalOpen && (
                 <div className={styles.modalOverlay}>
@@ -122,6 +126,7 @@ function NonAdminTable() {
                     </div>
                 </div>
             )}
+
         </div>
     );
 }
