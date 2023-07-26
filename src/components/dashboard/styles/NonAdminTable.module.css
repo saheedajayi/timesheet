@@ -3,7 +3,8 @@
 }
 
 .employeeDetails h2{
-    margin-bottom: 20px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid black;
 }
 
 .tableContentDiv{
@@ -68,17 +69,15 @@
     z-index: 1000;
 }
 
-/* Style the modal container */
 .modalContainer {
     background-color: #fff;
     border-radius: 8px;
     padding: 40px 20px 20px;
     box-shadow: 0 0 24px -10px rgba(0, 0, 0, 0.5);
     position: relative;
-    max-width: 500px; /* Set a maximum width for the modal */
+    max-width: 500px;
 }
 
-/* Style the close button */
 .closeButton {
     position: absolute;
     top: 10px;
@@ -104,5 +103,9 @@
 
 .userDetails p{
     margin: 5px 0;
+}
+
+.clockDateAndTime{
+    border-bottom: 1px solid black;
 }
 

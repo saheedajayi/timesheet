@@ -49,7 +49,6 @@ function NonAdminTable() {
             <div className={styles.empDetailsContainer}>
                 <div className={styles.employeeDetails}>
                     <h2>Employee Details</h2>
-                    <hr />
                 </div>
                 {nonAdminUsers.map((user) => (
                     <div key={user.id} className={styles.tableContentDiv}>
@@ -97,14 +96,12 @@ function NonAdminTable() {
                                         <p>Name: {user.fullname}</p>
                                         <p>Employee ID: {user.id}</p>
                                         <p>Role: {user.role}</p>
-                                        {/*{console.log("Selected User ID:", selectedUserId)}*/}
-                                        {/*{console.log("Selected User:", selectedUser)}*/}
-                                        {/*{console.log("Selected User Clocks:", selectedUserClocks)}*/}
                                         {/* Display clock information for the selected user */}
                                         {selectedUserClocks.map((clock) => (
-                                            <div key={clock.id}>
+                                            <div className={styles.clockDateAndTime} key={clock.id}>
                                                 <p>Status: {clock.status}</p>
                                                 <p>Time: {clock.time.toLocaleTimeString()}</p>
+                                                <p>Date: {clock.time.toLocaleDateString()}</p>
                                             </div>
                                         ))}
                                     </div>

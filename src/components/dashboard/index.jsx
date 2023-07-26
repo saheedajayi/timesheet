@@ -20,7 +20,7 @@ const Dashboard = () => {
         <div className={styles.dashboard}>
             <Nav/>
             <div className={styles.content}>
-                <h1>Welcome, {currentUser.fullName}!</h1>
+                <h1>Welcome, {currentUser.fullname}!</h1>
             </div>
             <div className={styles.dateTime}>
                 <div className={styles.time}>
