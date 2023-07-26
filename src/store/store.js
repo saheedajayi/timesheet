@@ -17,7 +17,7 @@ const persistConfig = {
             },
         }),
     ],
-    whitelist: ["users"]
+    whitelist: ["users", "clocks"]
 }
 
 const persistedReducer = persistReducer(persistConfig, combineReducers({
